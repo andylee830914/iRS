@@ -10,9 +10,20 @@ mysql_query($str2);
 $sql="SELECT answer FROM answers Where form='$result'";
 $result1=mysql_query($sql);
 $member=mysql_num_rows($result1);
-echo "Now Form : ";
-echo $result;
-echo "<br>";
-echo "Now Answers : ";
-echo $member;
+echo '<div class="col-md-4"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Now Form : </h3>
+  </div>
+  <div class="panel-body">'.
+    $result.
+  '</div>
+</div></div>';
+echo '<div class="col-md-4"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Now Answers : </h3>
+  </div>
+  <div class="panel-body">'.
+    $member.
+  '</div>
+</div></div>';
 ?>

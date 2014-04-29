@@ -9,9 +9,18 @@ $result=mysql_query($sql);
 $member=mysql_num_rows($result);
 $sql="DELETE FROM answers WHERE form='$form'";
 $result=mysql_query($sql); 
-echo "Now Form : ";
-echo $form;
-echo "<br>";
-echo "Now Answers : ";
-echo "0";
+echo '<div class="col-md-4"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Now Form : </h3>
+  </div>
+  <div class="panel-body">'.
+    $form.
+  '</div>
+</div></div>';
+echo '<div class="col-md-4"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Now Answers : </h3>
+  </div>
+  <div class="panel-body">0</div>
+</div></div>';
 ?>

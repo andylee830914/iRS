@@ -150,14 +150,27 @@ $member=mysql_num_rows($result);
                         <div class="alert alert-success alert-dismissable" style="display:none" id="success-block">
   新增成功！
 </div>
-	  <h2><div id="txtHint"><?php
-echo "Now Form : ";
-echo $form;
-echo "<br>";
-echo "Now Answers : ";
-echo $member;
-?>
-</div></h2>      
+<div class="row"  id="txtHint">
+<?php
+echo '<div class="col-md-4"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Now Form : </h3>
+  </div>
+  <div class="panel-body">'.
+    $form.
+  '</div>
+</div></div>';
+echo '<div class="col-md-4"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Now Answers : </h3>
+  </div>
+  <div class="panel-body">'.
+    $member.
+  '</div>
+</div></div>';
+    ?>
+</div>
+      
     <button type = "button" class="btn btn-success" onClick="Submit1()">新增下一題</button>
     <br><br>
     <button type = 'submit' class="btn btn-danger" onClick="Submit2()">清除本題回應記錄</button>
