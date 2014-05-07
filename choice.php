@@ -1,9 +1,6 @@
 <?php
     header('Content-Type: text/html; charset=utf-8');
     include("connect.php");
-$sql="SELECT member FROM status";
-$result=mysql_query($sql);
-$id=mysql_result($result,0);
 $sql="SELECT form FROM status";
 $result=mysql_query($sql);
 $form=mysql_result($result,0);
@@ -84,15 +81,12 @@ $form=mysql_result($result,0);
     <br>  
        <?php
 if ($_POST['answer']){
-$id=$id+1;
 $a = $_POST['name'];
 $b = $_POST['answer'];
 $c = $_SERVER["REMOTE_ADDR"];
 $date = date('Y-m-d H:i:s');
-$str1 = "INSERT INTO answers(ip,time,id,form,name,answer) VALUES ('$c','$date','$id','$form','$a','$b')";
+$str1 = "INSERT INTO answers(ip,time,form,name,answer) VALUES ('$c','$date','$form','$a','$b')";
 mysql_query($str1);
-$str2 = "UPDATE status SET member = ('$id') ";
-mysql_query($str2);
 }
     ?>
     </div>
