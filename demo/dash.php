@@ -32,6 +32,16 @@ $form=mysql_result($result,0);
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+     <script type="text/javascript">
+var auto_refresh = setInterval(
+function ()
+{
+$('#header').load('name.php').fadeIn("slow");
+$('#tableHolder').load('redash.php').fadeIn("slow");
+}, 10000); // refresh every 10000 milliseconds
+
+
+</script>
   </head>
 
   <body>
@@ -66,28 +76,9 @@ $form=mysql_result($result,0);
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-         <h1 class="page-header"><?php echo "第".$form."題回應：";?></h1>
-  <!--        <h1 class="page-header">
-              <?php
-             if(isset($_GET['name'])){
-             echo "第".$_GET['name']."題回應：";
-             }
-              else{
-                  echo "回應：";
-              }
-              ?></h1>
-     <select name="answers" class="form-control" onChange="location = this.options[this.selectedIndex].value;">
-         <option value="#">請選擇</option>
-         <?php
-for($i=1;$i<=$form;$i++){
-    echo "<option name='$i'";
-    if($_GET['name']==$i){
-        echo 'selected="selected"';
-    }
-    echo "value='dash.php?name=".$i."'>第" . $i . "題</option>";
-}
-          ?>
-    </select>-->
+        <h1 class="page-header" id="header"><?php echo "第 ".$form." 題回應：";?></h1>
+
+<div  id="tableHolder">
     <table  class="table table-striped">
     <thead><tr><th>答案</th><tr></thead>
     <tbody>
@@ -108,28 +99,7 @@ echo "</TABLE>";
 ?>
     </tbody>
     </table>
-   <!--         <?php
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='A'";
-$result=mysql_query($sql);
-$a=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='B'";
-$result=mysql_query($sql);
-$b=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='C'";
-$result=mysql_query($sql);
-$c=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='D'";
-$result=mysql_query($sql);
-$d=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='E'";
-$result=mysql_query($sql);
-$e=mysql_num_rows($result);
-
-?>-->
+    </div>
           </div>
         </div>
       </div>
