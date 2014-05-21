@@ -76,7 +76,7 @@ $form=mysql_result($result,0);
           <h1 class="page-header">
               <?php
              if(isset($_GET['name'])){
-             echo "第".$_GET['name']."題回應：";
+             echo "第 ".$_GET['name']." 題回應：";
              }
               else{
                   echo "回應：";
@@ -90,7 +90,7 @@ for($i=1;$i<=$form;$i++){
     if($_GET['name']==$i){
         echo 'selected="selected"';
     }
-    echo "value='dash.php?name=".$i."'>第" . $i . "題</option>";
+    echo "value='dash.php?name=".$i."'>第 " . $i . " 題</option>";
 }
           ?>
     </select>
