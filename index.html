@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>iRS</title>
      <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript">
+window.MathJax = {
+ jax: ["input/TeX","output/HTML-CSS"],
+ extensions: ["tex2jax.js"],
+ tex2jax: {
+  inlineMath: [['$$','$$'],['\\(','\\)']]
+ },
+};
+</script>
+<!--<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>-->
   </head>
     <body>
               <div id="fb-root"></div>
@@ -49,13 +59,20 @@
      <div class="jumbotron">
 		  <h1>歡迎使用 iRS</h1>
           <p>這是一個簡易的即時回饋系統，你可以登入 facebook 以在作答時自動填入姓名</p>
-         <p>By Yu Hsun Lee </p>
+         <p>By Yu Hsun Lee</p>
          <a><fb:login-button max_rows="1" size="xlarge" show_faces="false" auto_logout_link="true"></fb:login-button></a>
         
          </div>
-      <fb:facepile app_id="116906698359233" max_rows="1" colorscheme="light" size="medium" show_count="true"></fb:facepile><br>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <fb:facepile app_id="116906698359233" max_rows="1" colorscheme="light" size="medium" show_count="true"></fb:facepile> 
+           <div class="footer">
+        <p class="pull-right"><a href="login.php">iRS Dashboard</a></p>
+      </div>
+
+   
+
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/docs.min.js"></script>
-        </body>
+    <script src="assets/js/docs.min.js"></script>   
+</body>
 </html>
