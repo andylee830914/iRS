@@ -45,6 +45,28 @@ $member=mysql_num_rows($result);
            
         }
         </script>
+        <script>
+         var Submit1b=function(){
+            var URLs="back.php";
+          
+            $.ajax({
+                url: URLs,
+                type:"POST",
+                dataType:'text',
+
+                success: function(msg){
+                    document.getElementById("txtHint").innerHTML=msg;
+                    $("#back-block-success").show().delay(2000).addClass("in").fadeOut(500);
+                },
+
+                 error:function(xhr, ajaxOptions, thrownError){
+                    $("#back-block-error").show().delay(2000).addClass("in").fadeOut(500);
+
+                 }
+            });
+           
+        }
+        </script>
       <script>
          var Submit2=function(){
             var URLs="clearnow.php";
@@ -150,6 +172,14 @@ $member=mysql_num_rows($result);
                         <div class="alert alert-success alert-dismissable" style="display:none" id="success-block">
   新增成功！
 </div>
+<div class="alert alert-danger alert-dismissable" style="display:none" id="back-block-error">
+  返回失敗！
+</div>
+<div class="alert alert-success alert-dismissable" style="display:none" id="back-block-success">
+  返回成功！
+</div>
+
+
 <div class="row"  id="txtHint">
 <?php
 echo '<div class="col-md-4"><div class="panel panel-default">
@@ -172,6 +202,8 @@ echo '<div class="col-md-4"><div class="panel panel-default">
 </div>
       
     <button type = "button" class="btn btn-success" onClick="Submit1()">新增下一題</button>
+
+    <button type = "button" class="btn btn-success" onClick="Submit1b()">回上一題</button>
     <br><br>
     <button type = 'submit' class="btn btn-danger" onClick="Submit2()">清除本題回應記錄</button>
     <br><br>
