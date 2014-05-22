@@ -42,10 +42,11 @@ $output .="\n";
 
 // Download the file
 $date = date('Y-m-d');
-$filename = "iRS-export-".$date."-form-".$form.".csv";
+$filename = "iRS-report-".$date."-form-".$form.".csv";
 header('Content-type: application/csv');
 header('Content-Disposition: attachment; filename='.$filename);
 
+echo $filename."\n";
 echo $output;
 exit;
 
