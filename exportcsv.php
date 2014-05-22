@@ -17,6 +17,7 @@ $table = "answers"; // Enter Your Table Name
 $form=$_POST['form'];
 if(empty($form)){
 $sql =mysql_query("select * from $table ORDER BY `form` ASC");
+$form='all';
 }else{
 $sql = mysql_query("select * from $table where form='$form'");
 }
@@ -40,8 +41,8 @@ $output .="\n";
 }
 
 // Download the file
-
-$filename = "myFile.csv";
+$date = date('Y-m-d');
+$filename = "iRS-export-".$date."-form-".$form.".csv";
 header('Content-type: application/csv');
 header('Content-Disposition: attachment; filename='.$filename);
 
