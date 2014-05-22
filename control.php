@@ -144,7 +144,7 @@ $member=mysql_num_rows($result);
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="dash.php">Dashboard</a></li>
-            <li><a href="index.html">Front-End</a></li>
+            <li><a href="index.php">Front-End</a></li>
             <li><a href="logout.php">Log Out</a></li>
           </ul>
         </div>

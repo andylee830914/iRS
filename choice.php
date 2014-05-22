@@ -18,6 +18,7 @@ $form=mysql_result($result,0);
      <link href="dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
+      <?php include_once("analyticstracking.php") ?>
       <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
@@ -58,7 +59,7 @@ $form=mysql_result($result,0);
     <div class="page-header">
     <h1>即時回饋系統  <small>iRS</small></h1>
     <ul class="nav nav-pills">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.php">Home</a></li>
     <li class="active"><a href="choice.php">選擇題</a></li>
     <li><a href="blank.php">填充題</a></li>
     </ul>

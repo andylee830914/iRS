@@ -51,7 +51,7 @@ window.MathJax = {
 <div class="page-header">
     <h1>即時回饋系統  <small>iRS</small></h1>
     <ul class="nav nav-pills">
-    <li class="active"><a href="index.html">Home</a></li>
+    <li class="active"><a href="index.php">Home</a></li>
     <li><a href="choice.php">選擇題</a></li>
     <li><a href="blank.php">填充題</a></li>
     </ul>
@@ -65,7 +65,7 @@ window.MathJax = {
          </div>
       <fb:facepile app_id="116906698359233" max_rows="1" colorscheme="light" size="medium" show_count="true"></fb:facepile> 
            <div class="footer">
-        <p class="pull-right"><a href="dash.php">iRS Dashboard</a></p>
+        <p class="text-right"><a href="dash.php">iRS Dashboard</a></p>
       </div>
 
    
