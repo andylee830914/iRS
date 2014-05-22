@@ -12,7 +12,7 @@ with Bootstrap stylesheet
 ===
 Setting up the Stylesheet
 
-1.Download the original Bootstrap Source code.
+1.Download the original Bootstrap Source code.<br>
 2.Copy the "dist" and "assets" which under the "docs" of Bootstrap Source code floder to "irs".
 
 Setting your Database
