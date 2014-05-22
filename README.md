@@ -17,10 +17,10 @@ Setting up the Stylesheet
 
 Setting your Database
 
-1.Create a database called "irs".
-2.Upload the file "irs.sql" to your database through phpMyAdmin.
+1.Create a database called "irs".<br>
+2.Upload the file "irs.sql" to your database through phpMyAdmin.<br>
 3.Edit the "connect.php" with your MySQL server ,username and password.
 
-Deafault dashboard account and password
-username: admin
+Deafault dashboard account and password<br>
+username: admin<br>
 password: apple
