@@ -25,7 +25,7 @@ $member=mysql_num_rows($result);
     <title>iRS Admin</title>
         <script>
          var Submit1=function(){
-            var URLs="recive.php";
+            var URLs="receive.php";
           
             $.ajax({
                 url: URLs,
