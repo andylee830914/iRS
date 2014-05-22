@@ -65,61 +65,41 @@ $form=mysql_result($result,0);
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="dash.php">Status</a></li>
-            <li class="active"><a href="analytics.php">Analytics</a></li>
-            <li><a href="export.php">Export</a></li>
+            <li><a href="analytics.php">Analytics</a></li>
+            <li class="active"><a href="export.php">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="control.php">Control Panel</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">
-              <?php
-             if(isset($_GET['name'])){
-             echo "第 ".$_GET['name']." 題回應：";
-             }
-              else{
-                  echo "回應：";
-              }
-              ?></h1>
-
+          <h1 class="page-header">Export</h1>
      <select name="answers" class="form-control" onChange="location = this.options[this.selectedIndex].value;">
-         <option value="#">請選擇</option>
+         <option value="export.php">全部紀錄</option>
          <?php
 for($i=1;$i<=$form;$i++){
     echo "<option name='$i'";
     if($_GET['name']==$i){
         echo 'selected="selected"';
     }
-    echo "value='analytics.php?name=".$i."'>第 " . $i . " 題</option>";
+    echo "value='export.php?name=".$i."'>第 " . $i . " 題</option>";
 }
           ?>
     </select>
-              <div id="myfirstchart"></div>
-            <?php
+
+        <?php
+if(empty($_GET['name'])){
+$form="";
+}
+else{
 $form=$_GET['name'];
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='A'";
-$result=mysql_query($sql);
-$a=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='B'";
-$result=mysql_query($sql);
-$b=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='C'";
-$result=mysql_query($sql);
-$c=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='D'";
-$result=mysql_query($sql);
-$d=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='E'";
-$result=mysql_query($sql);
-$e=mysql_num_rows($result);
-
+}
 ?>
-          </div>
+<br>
+<form method="post" action="exportcsv.php">
+ <button class="btn btn-primary btn-lg" type="submit" name = "form" value=<?php echo $form; ?>>Export</button>
+</form> 
+	 </div>
         </div>
       </div>
     </div>
@@ -133,20 +113,5 @@ $e=mysql_num_rows($result);
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-    <script>
-    new Morris.Bar({
-                element: 'myfirstchart',
-              data: [
-                  { ans: 'A', value: <?php echo $a; ?> },
-                  { ans: 'B', value: <?php echo $b; ?> },
-                  { ans: 'C', value: <?php echo $c; ?> },
-                  { ans: 'D', value: <?php echo $d; ?> },
-                  { ans: 'E', value: <?php echo $e; ?> }
-  ],
-  xkey: 'ans',
-  ykeys: ['value'],
-  labels: ['Value']
-});
-      </script>
   </body>
 </html>

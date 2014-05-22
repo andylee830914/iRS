@@ -66,7 +66,7 @@ $form=mysql_result($result,0);
           <ul class="nav nav-sidebar">
             <li class="active"><a href="dash.php">Status</a></li>
             <li><a href="analytics.php">Analytics</a></li>
-            <li><a href="#">Export</a></li>
+            <li><a href="export.php">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="control.php">Control Panel</a></li>
@@ -114,28 +114,7 @@ echo "</TABLE>";
 ?>
     </tbody>
     </table>
-            <?php
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='A'";
-$result=mysql_query($sql);
-$a=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='B'";
-$result=mysql_query($sql);
-$b=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='C'";
-$result=mysql_query($sql);
-$c=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='D'";
-$result=mysql_query($sql);
-$d=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='E'";
-$result=mysql_query($sql);
-$e=mysql_num_rows($result);
-
-?>
+            
           </div>
         </div>
       </div>

@@ -157,7 +157,7 @@ $member=mysql_num_rows($result);
           <ul class="nav nav-sidebar">
             <li><a href="dash.php">Status</a></li>
             <li><a href="analytics.php">Analytics</a></li>
-            <li><a href="#">Export</a></li>
+            <li><a href="export.php">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="">Control Panel</a></li>
