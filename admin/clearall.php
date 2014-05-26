@@ -8,7 +8,7 @@
 $sql="TRUNCATE TABLE answers";
 $result=mysql_query($sql); 
 $result=0;
-$str2 = "UPDATE status SET form=1";
+$str2 = "UPDATE status SET form=0";
 mysql_query($str2);
 echo '<div class="col-md-4"><div class="panel panel-default">
   <div class="panel-heading">
