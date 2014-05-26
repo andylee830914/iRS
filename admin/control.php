@@ -4,7 +4,7 @@
 ?>
 <?php
     header('Content-Type: text/html; charset=utf-8');
-    include("connect.php");
+    include("../connect.php");
 $sql="SELECT form FROM status";
 $result=mysql_query($sql);
 $form=mysql_result($result,0);
@@ -20,7 +20,7 @@ $member=mysql_num_rows($result);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
 
     <title>iRS Admin</title>
         <script>
@@ -144,7 +144,7 @@ $member=mysql_num_rows($result);
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="dash.php">Dashboard</a></li>
-            <li><a href="index.php">Front-End</a></li>
+            <li><a href="../index.php">Front-End</a></li>
             <li><a href="logout.php">Log Out</a></li>
           </ul>
         </div>
@@ -158,6 +158,10 @@ $member=mysql_num_rows($result);
             <li><a href="dash.php">Status</a></li>
             <li><a href="analytics.php">Analytics</a></li>
             <li><a href="export.php">Export</a></li>
+          </ul>
+                          <ul class="nav nav-sidebar">
+            <li><a href="subjectview.php">Subject Manage</a></li>
+            <li><a href="subjectupload.php">Subject Upload</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="">Control Panel</a></li>
@@ -218,7 +222,7 @@ echo '<div class="col-md-4"><div class="panel panel-default">
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/docs.min.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/docs.min.js"></script>
   </body>
 </html>

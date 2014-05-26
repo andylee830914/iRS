@@ -4,7 +4,7 @@
 ?>
 <?php
     header('Content-Type: text/html; charset=utf-8');
-    include("connect.php");
+    include("../connect.php");
 $sql="SELECT form FROM status";
 $result=mysql_query($sql);
 $form=mysql_result($result,0);
@@ -17,12 +17,12 @@ $form=mysql_result($result,0);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
 
     <title>iRS Admin</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
@@ -53,7 +53,7 @@ $form=mysql_result($result,0);
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="dash.php">Dashboard</a></li>
-            <li><a href="index.php">Front-End</a></li>
+            <li><a href="../index.php">Front-End</a></li>
             <li><a href="logout.php">Log Out</a></li>
           </ul>
         </div>
@@ -64,9 +64,13 @@ $form=mysql_result($result,0);
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="dash.php">Status</a></li>
-            <li class="active"><a href="analytics.php">Analytics</a></li>
+            <li class="active"><a href="dash.php">Status</a></li>
+            <li><a href="analytics.php">Analytics</a></li>
             <li><a href="export.php">Export</a></li>
+          </ul>
+                      <ul class="nav nav-sidebar">
+            <li><a href="subjectview.php">Subject Manage</a></li>
+            <li><a href="subjectupload.php">Subject Upload</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="control.php">Control Panel</a></li>
@@ -82,7 +86,6 @@ $form=mysql_result($result,0);
                   echo "回應：";
               }
               ?></h1>
-
      <select name="answers" class="form-control" onChange="location = this.options[this.selectedIndex].value;">
          <option value="#">請選擇</option>
          <?php
@@ -91,34 +94,31 @@ for($i=1;$i<=$form;$i++){
     if($_GET['name']==$i){
         echo 'selected="selected"';
     }
-    echo "value='analytics.php?name=".$i."'>第 " . $i . " 題</option>";
+    echo "value='dash.php?name=".$i."'>第 " . $i . " 題</option>";
 }
           ?>
     </select>
-              <div id="myfirstchart"></div>
-            <?php
+    <table  class="table table-striped">
+    <thead><tr><th>姓名</th><th>答案</th><tr></thead>
+    <tbody>
+        <?php
 $form=$_GET['name'];
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='A'";
+$sql="SELECT name,answer FROM answers WHERE form='$form'";
 $result=mysql_query($sql);
-$a=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='B'";
-$result=mysql_query($sql);
-$b=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='C'";
-$result=mysql_query($sql);
-$c=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='D'";
-$result=mysql_query($sql);
-$d=mysql_num_rows($result);
-
-$sql="SELECT answer FROM answers WHERE form='$form' AND answer='E'";
-$result=mysql_query($sql);
-$e=mysql_num_rows($result);
-
+    for($j=0;$j<mysql_num_rows($result);$j++)
+{
+ echo "<TR>";
+ for ($k=0;$k<mysql_num_fields($result);$k++)
+ {
+   echo "<TD>".mysql_result($result,$j,$k)."</TD>";
+ }
+ echo "</TR>";
+}
+echo "</TABLE>";
 ?>
+    </tbody>
+    </table>
+            
           </div>
         </div>
       </div>
@@ -128,25 +128,10 @@ $e=mysql_num_rows($result);
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/docs.min.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/docs.min.js"></script>
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-    <script>
-    new Morris.Bar({
-                element: 'myfirstchart',
-              data: [
-                  { ans: 'A', value: <?php echo $a; ?> },
-                  { ans: 'B', value: <?php echo $b; ?> },
-                  { ans: 'C', value: <?php echo $c; ?> },
-                  { ans: 'D', value: <?php echo $d; ?> },
-                  { ans: 'E', value: <?php echo $e; ?> }
-  ],
-  xkey: 'ans',
-  ykeys: ['value'],
-  labels: ['Value']
-});
-      </script>
   </body>
 </html>

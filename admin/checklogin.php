@@ -1,11 +1,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 <body>
 
     <div class="container">
 <br><br><br>
 <?php
-include("connect.php");
+    include("../connect.php");
 $id = $_POST['id'];
 $pw = md5($_POST['pw']);
 
@@ -36,7 +36,7 @@ else
     將重新導向iRS首頁
   </div>
 </div>';
-        echo '<meta http-equiv=REFRESH CONTENT=1;url=index.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=1;url=../index.php>';
 }
 ?>
 </body>

@@ -4,7 +4,7 @@
 ?>
 <?php
     header('Content-Type: text/html; charset=utf-8');
-    include("connect.php");
+    include("../connect.php");
 $sql="SELECT form FROM status";
 $result=mysql_query($sql);
 $form=mysql_result($result,0);
@@ -17,12 +17,12 @@ $form=mysql_result($result,0);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
 
     <title>iRS Admin</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
@@ -53,7 +53,7 @@ $form=mysql_result($result,0);
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="dash.php">Dashboard</a></li>
-            <li><a href="index.php">Front-End</a></li>
+            <li><a href="../index.php">Front-End</a></li>
             <li><a href="logout.php">Log Out</a></li>
           </ul>
         </div>
@@ -67,6 +67,10 @@ $form=mysql_result($result,0);
             <li><a href="dash.php">Status</a></li>
             <li><a href="analytics.php">Analytics</a></li>
             <li class="active"><a href="export.php">Export</a></li>
+          </ul>
+                           <ul class="nav nav-sidebar">
+            <li><a href="subjectview.php">Subject Manage</a></li>
+            <li><a href="subjectupload.php">Subject Upload</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="control.php">Control Panel</a></li>
@@ -108,8 +112,8 @@ $form=$_GET['name'];
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/docs.min.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/docs.min.js"></script>
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>

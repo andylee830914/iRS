@@ -65,7 +65,7 @@ window.MathJax = {
          </div>
       <fb:facepile app_id="116906698359233" max_rows="1" colorscheme="light" size="medium" show_count="true"></fb:facepile> 
            <div class="footer">
-        <p class="text-right"><a href="dash.php">iRS Dashboard</a></p>
+        <p class="text-right"><a href="admin/dash.php">iRS Dashboard</a></p>
       </div>
 
    

@@ -6,7 +6,7 @@
 
 // Database Connection
 
-include("connect.php"); 
+include("../connect.php"); 
 $result=mysql_select_db("irs")
 or die("database cannot be selected <br>");
 

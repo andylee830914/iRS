@@ -1,10 +1,10 @@
 <?php
     header('Content-Type: text/html; charset=utf-8');
-    include("connect.php");
+    include("../connect.php");
    $sql="SELECT form FROM status";
 $result=mysql_query($sql); 
 $result=mysql_result($result,0);
-if ($result>1){
+if ($result>0){
 $result=$result-1;
 }else{
 $result=1;
