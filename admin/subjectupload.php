@@ -109,10 +109,11 @@
 $filename = "iRS-data.csv";
 if($_FILES["file"]){
     if($_FILES["file"]["type"]=="text/csv"){
-move_uploaded_file($_FILES["file"]["tmp_name"],"/var/www/html/irs/data/iRS-data.csv");
+move_uploaded_file($_FILES["file"]["tmp_name"],"../data/iRS-data.csv");
 }else
 {
-    die("請上傳 csv 檔");
+    $error="請上傳 csv 檔";
+    echo "<script type='text/javascript'>alert('$error');</script>";
 }}
 ?>
             <h2>題目預覽</h2>
@@ -120,7 +121,7 @@ move_uploaded_file($_FILES["file"]["tmp_name"],"/var/www/html/irs/data/iRS-data.
     <thead><tr><th>答案</th><th>題目</th><th>選項一</th><th>選項二</th><th>選項三</th><th>選項四</th><th>選項五</th><tr></thead>
     <tbody>
         <?php
-     $fp = fopen("/var/www/html/irs/data/iRS-data.csv", "r");
+     $fp = fopen("../data/iRS-data.csv", "r");
      
      while($ROW = fgetcsv($fp)){
         echo "<TR>";

@@ -13,7 +13,7 @@ $N = count($id);
 foreach($id as $id1)
 {
 	mysql_query("DELETE FROM examdata where form='$id1'");
-    $file_pattern = "/var/www/html/irs/data/".$id1.".*";
+    $file_pattern = "../data/".$id1.".*";
     array_map( "unlink", glob( $file_pattern ) );
     
 }

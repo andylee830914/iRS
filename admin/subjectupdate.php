@@ -9,14 +9,14 @@
 $filename=pathinfo($_FILES["pic"]["name"], PATHINFO_EXTENSION);
 if ($_FILES["pic"]["size"]>0){
     $pic=$_POST[form].".".$filename;
-    move_uploaded_file($_FILES["pic"]["tmp_name"],"/var/www/html/irs/data/".$pic);
+    move_uploaded_file($_FILES["pic"]["tmp_name"],"../data/".$pic);
 }else{
     if($_POST[form]!=$_POST[formori]){
         if(empty($_POST[picname])){
             $pic=$_POST[picname];
         }else{
             $new=pathinfo($_POST[picname], PATHINFO_EXTENSION);
-            rename("/var/www/html/irs/data/".$_POST[picname], "/var/www/html/irs/data/".$_POST[form].".".$new);
+            rename("../data/".$_POST[picname], "../data/".$_POST[form].".".$new);
             $pic=$_POST[form].".".$new;
         }}else{
             $pic=$_POST[picname];

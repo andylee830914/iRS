@@ -5,7 +5,7 @@
 <?php
     header('Content-Type: text/html; charset=utf-8');
     include("../connect.php");
-$fp = fopen("/var/www/html/irs/data/iRS-data.csv", "r");
+$fp = fopen("../data/iRS-data.csv", "r");
 
 
 while($ROW = fgetcsv($fp)){
@@ -27,5 +27,5 @@ echo     "<thead><tr><th>答案</th><th>題目</th><th>選項一</th><th>選項�
 //$result1=mysql_query($sql);
 //$member=mysql_num_rows($result1);
 fclose($fp);
-unlink("/var/www/html/irs/data/iRS-data.csv");
+unlink("../data/iRS-data.csv");
 ?>
