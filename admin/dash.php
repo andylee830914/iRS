@@ -89,7 +89,10 @@ $form=mysql_result($result,0);
      <select name="answers" class="form-control" onChange="location = this.options[this.selectedIndex].value;">
          <option value="#">請選擇</option>
          <?php
-for($i=1;$i<=$form;$i++){
+$sql1="SELECT MAX(form) FROM answers";
+$result=mysql_query($sql1);
+$form1=mysql_result($result,0);
+for($i=1;$i<=$form1;$i++){
     echo "<option name='$i'";
     if($_GET['name']==$i){
         echo 'selected="selected"';
