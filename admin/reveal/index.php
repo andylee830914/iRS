@@ -1,3 +1,7 @@
+<?php if(!isset($_COOKIE["login"])){
+      header("Location:../login.php"); //將網址改為要導入的登入頁面
+       }
+?>
 <!doctype html>
 <html lang="en">
 <?php
@@ -41,6 +45,8 @@ $result=mysql_query($sql);
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+                <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 	</head>
 
 	<body>
@@ -55,7 +61,7 @@ $result=mysql_query($sql);
                     
 				</section>
                 <section>
-                    <img src="chart.png" align="center">
+                    <?php echo '<img src="http://chart.apis.google.com/chart?cht=qr&chl=http://'.$_SERVER["SERVER_NAME"].'/irs&chs=400x400" align="center">';?>
             <p>拿出手機掃描 iRS 的 QR Code！</p>
                     <p>可登入自己的 facebook ，讓 iRS 自動填入姓名</p>
                 </section>
@@ -67,7 +73,7 @@ echo "<p>".$row['data']."</p>";
 echo '<br>';
         if(empty($row[pic])){
         }else{
-         echo '<img src="/irs/data/'.$row['pic'].'" style="margin:0px 30px">';
+         echo '<img src="../../data/'.$row['pic'].'" style="margin:0px 30px">';
         }
 echo '<ol style="A">';
 for ($i=0;$i<6;$i++){
@@ -97,7 +103,11 @@ echo "</section><section><h2>答案是</h2><center><h1>".$row['answer']."</h1></
 		<script src="js/reveal.min.js"></script>
 
 		<script>
-
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    var arr = [event.indexh, event.indexv];
+    console.log(arr);
+    $.post( "submit.php", { indexh: event.indexh, indexv: event.indexv } );
+});
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -121,5 +131,6 @@ echo "</section><section><h2>答案是</h2><center><h1>".$row['answer']."</h1></
 			});
 
 		</script>
+
 	</body>
 </html>
